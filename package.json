@@ -1,0 +1,12 @@
+{
+  "name": "nucleus",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix apps/web",
+    "dev:api": "npm run dev --prefix apps/api",
+    "dev:worker": "npm run worker:vuln --prefix apps/api",
+    "build": "npm run build --prefix apps/web && npm run build --prefix apps/api",
+    "build:web": "npm run build --prefix apps/web",
+    "build:api": "npm run build --prefix apps/api"
+  }
+}

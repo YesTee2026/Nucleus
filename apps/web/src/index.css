@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-brand-50: #f0fdfa;
+  --color-brand-100: #ccfbf1;
+  --color-brand-200: #99f6e4;
+  --color-brand-300: #5eead4;
+  --color-brand-400: #2dd4bf;
+  --color-brand-500: #14b8a6;
+  --color-brand-600: #0d9488;
+  --color-brand-700: #0f766e;
+  --color-brand-800: #115e59;
+  --color-brand-900: #134e4a;
+
+  --color-surface: #f8fafc;
+  --color-surface-raised: #ffffff;
+  --color-sidebar: #0f172a;
+  --color-sidebar-hover: #1e293b;
+  --color-sidebar-active: #134e4a;
+}
+
+@layer base {
+  * {
+    @apply border-slate-200;
+  }
+
+  body {
+    @apply bg-surface font-sans text-slate-900 antialiased;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply rounded-xl border border-slate-200/80 bg-white shadow-sm;
+  }
+}
+
+.react-flow__node {
+  font-family: var(--font-sans);
+}
+
+.react-flow__controls-button {
+  @apply !border-slate-200 !bg-white;
+}
+
+.react-flow__edge-path {
+  stroke-linecap: round;
+}
+
+@keyframes rf-edge-dash {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+
+@keyframes rf-edge-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+@keyframes rf-node-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes rf-dot-travel {
+  to {
+    offset-distance: 100%;
+  }
+}
+
+.rf-edge-flow {
+  stroke-dasharray: 6 10;
+  animation: rf-edge-dash 0.9s linear infinite;
+}
+
+.rf-edge-halo {
+  animation: rf-edge-pulse 2.4s ease-in-out infinite;
+}
+
+.rf-node-enter {
+  animation: rf-node-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.rf-chart-canvas {
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 10%, rgb(204 251 241 / 0.55), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 90% 80%, rgb(224 242 254 / 0.65), transparent 50%),
+    linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+}
